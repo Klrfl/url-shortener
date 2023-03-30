@@ -1,15 +1,28 @@
 <template>
-  <header class="info">
-    <h1>URL Shortener</h1>
-    <p>
-      insert the url you want to shorten and click shorten to get the shortened
-      url.
-    </p>
+  <header>
+    <div class="info">
+      <h1>URL Shortener</h1>
+      <p>
+        insert the url you want to shorten and click shorten to get the
+        shortened url.
+      </p>
+    </div>
+
+    <div class="input-form">
+      <input
+        type="text"
+        placeholder="put your URL here"
+        v-model="url"
+        ref="UrlInput"
+      />
+      <button class="btn btn--cta" @click="getShortUrl">
+        Get Shortened URL
+      </button>
+      <button class="btn--clear" @click="this.$refs.UrlInput.value = ''">
+        Clear URL Field
+      </button>
+    </div>
   </header>
-  <form @submit.prevent="getShortUrl">
-    <input type="text" placeholder="put your URL here" v-model="url" />
-    <input type="submit" />
-  </form>
 </template>
 
 <script>
@@ -23,8 +36,19 @@ export default {
     };
   },
   methods: {
+    checkValidUrl(url) {
+      let givenUrl;
+      try {
+        givenUrl = new URL(url);
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+      return true;
+    },
     async getShortUrl() {
-      if (this.url.length === 0) {
+      const isValidUrl = this.checkValidUrl(this.url);
+      if (!isValidUrl) {
         alert("not a valid url.");
       }
       const options = {
@@ -45,11 +69,35 @@ export default {
         options
       )
         .then((response) => response.json())
-        // .then((data) => (this.shortUrl = data.link));
-        .then((data) => (this.shortUrl = data.link));
-      console.log(this.shortUrl);
+        .then((data) => (this.shortUrl = data.link))
+        .catch((err) => console.log(err));
+
+      // copy URL to clipboard
+      navigator.clipboard.writeText(this.shortUrl);
       this.$emit("gotShortUrl", this.shortUrl);
+    },
+    clearUrl() {
+      this.url = "";
     },
   },
 };
 </script>
+
+<style>
+header {
+  padding: 2rem;
+  text-align: center;
+  outline: 2px solid #333;
+}
+
+input {
+  padding: 0.5rem;
+  font-size: inherit;
+}
+
+.btn--cta {
+  padding: 0.5rem;
+  background-color: blueviolet;
+  cursor: pointer;
+}
+</style>
