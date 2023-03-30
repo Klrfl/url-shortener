@@ -14,6 +14,8 @@
 
 <script>
 export default {
+  name: "TheHeader",
+  emits: ["gotShortUrl"],
   data() {
     return {
       url: "",
@@ -21,7 +23,10 @@ export default {
     };
   },
   methods: {
-    getShortUrl() {
+    async getShortUrl() {
+      if (this.url.length === 0) {
+        alert("not a valid url.");
+      }
       const options = {
         method: "POST",
         headers: {
@@ -35,10 +40,14 @@ export default {
         }),
       };
 
-      const response = fetch("https://api-ssl.bitly.com/v4/shorten", options)
+      const response = await fetch(
+        "https://api-ssl.bitly.com/v4/shorten",
+        options
+      )
         .then((response) => response.json())
         // .then((data) => (this.shortUrl = data.link));
         .then((data) => (this.shortUrl = data.link));
+      console.log(this.shortUrl);
       this.$emit("gotShortUrl", this.shortUrl);
     },
   },
