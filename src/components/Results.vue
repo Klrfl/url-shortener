@@ -1,8 +1,9 @@
 <template>
   <div class="results">
     <h2>Here is your shortened url!</h2>
+    <p>The url is already copied to your clipboard.</p>
     <a class="short-url" :href="shortUrl" target="_blank">{{ shortUrl }}</a>
-    <button @click="copyUrl">Copy URL</button>
+    <button @click="copyUrl" class="btn btn--cta">Copy URL</button>
   </div>
 </template>
 
@@ -20,3 +21,15 @@ export default {
   },
 };
 </script>
+
+<style>
+.results {
+  padding: 2rem;
+  text-align: center;
+}
+
+.short-url {
+  background: #2f2f2a;
+  padding: 0.5rem;
+}
+</style>
