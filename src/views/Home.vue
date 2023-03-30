@@ -1,6 +1,8 @@
 <template>
-  <TheHeader @gotShortUrl="handleUrl" />
-  <Results :shortUrl="shortUrl" v-if="shortUrl.length !== 0" />
+  <main>
+    <TheHeader @gotShortUrl="handleUrl" />
+    <Results :shortUrl="shortUrl" v-if="shortUrl.length !== 0" />
+  </main>
 </template>
 
 <script>
