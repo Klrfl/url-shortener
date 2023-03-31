@@ -15,12 +15,8 @@
         v-model="url"
         ref="UrlInput"
       />
-      <button class="btn btn--cta" @click="getShortUrl">
-        Get Shortened URL
-      </button>
-      <button class="btn--clear" @click="this.$refs.UrlInput.value = ''">
-        Clear URL Field
-      </button>
+      <button class="btn btn--cta" @click="getShortUrl">Get Short URL</button>
+      <button class="btn btn--clear" @click="clearUrl">Clear URL Field</button>
     </div>
   </header>
 </template>
@@ -37,26 +33,28 @@ export default {
   },
   methods: {
     checkValidUrl(url) {
-      let givenUrl;
       try {
-        givenUrl = new URL(url);
+        new URL(url);
       } catch (error) {
         console.log(error);
         return false;
       }
       return true;
     },
+
     async getShortUrl() {
       const isValidUrl = this.checkValidUrl(this.url);
       if (!isValidUrl) {
         alert("not a valid url.");
       }
+
       const options = {
         method: "POST",
         headers: {
           Authorization: `Bearer b8c5695e01c439ba5398e77a38793cdcbfc13627`,
           "Content-Type": "application/json",
         },
+
         body: JSON.stringify({
           group_guid: "",
           domain: "bit.ly",
@@ -76,6 +74,7 @@ export default {
       navigator.clipboard.writeText(this.shortUrl);
       this.$emit("gotShortUrl", this.shortUrl);
     },
+
     clearUrl() {
       this.url = "";
     },
@@ -85,7 +84,7 @@ export default {
 
 <style>
 header {
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
   outline: 2px solid #333;
 }
