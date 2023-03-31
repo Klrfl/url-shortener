@@ -20,6 +20,8 @@ nav {
 }
 
 .nav-links a {
+  color: #eee !important;
+  text-decoration: none;
   display: block;
   color: inherit;
   text-decoration: none;
@@ -29,7 +31,7 @@ nav {
 
 .nav-links a.current-page::before {
   content: "";
-  background: rgb(39, 83, 180);
+  background: var(--accent);
 
   position: absolute;
   bottom: 0;
@@ -40,5 +42,6 @@ nav {
 
 .nav-links a:hover {
   background: #333;
+  text-decoration: none;
 }
 </style>
