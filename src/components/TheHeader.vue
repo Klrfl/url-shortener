@@ -96,7 +96,11 @@ input {
 
 .btn--cta {
   padding: 0.5rem;
-  background-color: blueviolet;
+  background-color: var(--accent);
   cursor: pointer;
+}
+
+.btn--clear {
+  outline: 2px solid var(--accent);
 }
 </style>
