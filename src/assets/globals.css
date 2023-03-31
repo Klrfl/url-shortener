@@ -1,5 +1,6 @@
 :root {
   color-scheme: light dark;
+  --accent: rgb(39, 83, 180);
 }
 
 * {
@@ -13,4 +14,17 @@ body {
 
 button {
   all: unset;
+}
+
+a:link {
+  color: dodgerblue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: dodgerblue;
 }
