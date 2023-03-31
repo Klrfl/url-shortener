@@ -6,4 +6,9 @@ import { RouterLink, RouterView } from "vue-router";
   <RouterView />
 </template>
 
-<style scoped></style>
+<style>
+.btn {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+</style>
