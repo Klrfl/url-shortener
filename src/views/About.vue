@@ -1,5 +1,4 @@
 <template>
-  <TheNavbar />
   <main>
     <h1>About this project</h1>
     <p>
@@ -20,16 +19,6 @@
     </p>
   </main>
 </template>
-
-<script>
-import TheNavbar from "../components/TheNavbar.vue";
-
-export default {
-  components: {
-    TheNavbar,
-  },
-};
-</script>
 
 <style>
 main {

@@ -1,5 +1,4 @@
 <template>
-  <TheNavbar />
   <main>
     <TheHeader @gotShortUrl="handleUrl" />
     <Results :shortUrl="shortUrl" v-if="shortUrl.length !== 0" />
@@ -15,7 +14,6 @@ export default {
   components: {
     TheHeader,
     Results,
-    TheNavbar,
   },
 
   data() {

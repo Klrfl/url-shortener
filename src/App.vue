@@ -1,9 +1,11 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import TheNavbar from "./components/TheNavbar.vue";
 import "./assets/globals.css";
 </script>
 
 <template>
+  <TheNavbar />
   <RouterView />
 </template>
 
