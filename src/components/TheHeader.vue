@@ -11,7 +11,8 @@
     <div class="input-form">
       <div class="input-container">
         <input
-          type="text"
+          autofocus
+          type="url"
           placeholder="put your URL here"
           v-model="url"
           ref="UrlInput"
@@ -112,8 +113,15 @@ input {
   margin-inline: 0.5rem;
 }
 
+.btn:hover {
+  filter: saturate(0.8);
+}
+
+.btn:active {
+  transform: translateY(0.2rem);
+}
+
 .btn--cta {
-  padding: 0.5rem;
   background-color: var(--accent);
   cursor: pointer;
 }
@@ -125,6 +133,10 @@ input {
 @media screen and (prefers-color-scheme: light) {
   header {
     background: #ececec;
+  }
+
+  .btn--cta {
+    color: #eee;
   }
 }
 </style>
