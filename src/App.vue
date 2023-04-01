@@ -14,4 +14,10 @@ import "./assets/globals.css";
   padding: 0.5rem;
   cursor: pointer;
 }
+
+main {
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 70ch;
+}
 </style>

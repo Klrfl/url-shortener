@@ -19,9 +19,3 @@
     </p>
   </main>
 </template>
-
-<style>
-main {
-  padding: 2rem;
-}
-</style>
