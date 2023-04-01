@@ -8,9 +8,17 @@
 </template>
 
 <style>
-nav {
-  outline: 2px solid #333;
+:root {
+  --nav-color-dark: #eee;
+  --nav-color-light: #222;
+  --nav-outline-dark: #333;
+  --nav-outline-light: #cecece;
 }
+
+nav {
+  outline: 2px solid var(--nav-outline-dark);
+}
+
 .nav-links {
   list-style: none;
   margin: 0;
@@ -20,7 +28,7 @@ nav {
 }
 
 .nav-links a {
-  color: #eee;
+  color: var(--nav-color-dark);
   text-decoration: none;
   display: block;
   color: inherit;
@@ -30,7 +38,7 @@ nav {
 }
 
 .nav-links a:visited {
-  color: #eee;
+  color: var(--nav-color-dark);
 }
 
 .nav-links a.current-page::before {
@@ -49,8 +57,12 @@ nav {
   text-decoration: none;
 }
 @media screen and (prefers-color-scheme: light) {
+  nav {
+    outline: 2px solid var(--nav-outline-light);
+  }
+
   .nav-links a:is(:link, :visited) {
-    color: #222222;
+    color: var(--nav-color-light);
   }
 
   .nav-links a:hover {
