@@ -32,4 +32,10 @@ export default {
   background: #2f2f2a;
   padding: 0.5rem;
 }
+
+@media screen and (prefers-color-scheme: light) {
+  .short-url {
+    background: #ecececec;
+  }
+}
 </style>

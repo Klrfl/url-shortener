@@ -28,3 +28,9 @@ a:hover {
 a:visited {
   color: dodgerblue;
 }
+
+@media screen and (prefers-color-scheme: light) {
+  body {
+    background: #e2e2e2;
+  }
+}

@@ -20,13 +20,17 @@ nav {
 }
 
 .nav-links a {
-  color: #eee !important;
+  color: #eee;
   text-decoration: none;
   display: block;
   color: inherit;
   text-decoration: none;
   padding: 1rem;
   position: relative;
+}
+
+.nav-links a:visited {
+  color: #eee;
 }
 
 .nav-links a.current-page::before {
@@ -43,5 +47,14 @@ nav {
 .nav-links a:hover {
   background: #333;
   text-decoration: none;
+}
+@media screen and (prefers-color-scheme: light) {
+  .nav-links a:is(:link, :visited) {
+    color: #222222;
+  }
+
+  .nav-links a:hover {
+    background: #d2d2dd;
+  }
 }
 </style>
