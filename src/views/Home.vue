@@ -8,7 +8,6 @@
 <script>
 import TheHeader from "../components/TheHeader.vue";
 import Results from "../components/Results.vue";
-import TheNavbar from "../components/TheNavbar.vue";
 
 export default {
   components: {
