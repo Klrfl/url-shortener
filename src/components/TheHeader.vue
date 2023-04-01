@@ -9,14 +9,20 @@
     </div>
 
     <div class="input-form">
-      <input
-        type="text"
-        placeholder="put your URL here"
-        v-model="url"
-        ref="UrlInput"
-      />
-      <button class="btn btn--cta" @click="getShortUrl">Get Short URL</button>
-      <button class="btn btn--clear" @click="clearUrl">Clear URL Field</button>
+      <div class="input-container">
+        <input
+          type="text"
+          placeholder="put your URL here"
+          v-model="url"
+          ref="UrlInput"
+        />
+      </div>
+      <div class="button-container">
+        <button class="btn btn--cta" @click="getShortUrl">Get Short URL</button>
+        <button class="btn btn--clear" @click="clearUrl">
+          Clear URL Field
+        </button>
+      </div>
     </div>
   </header>
 </template>
@@ -84,14 +90,26 @@ export default {
 
 <style>
 header {
+  background: #22242d;
   padding: 1rem;
+  margin: auto;
   text-align: center;
-  outline: 2px solid #333;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 input {
+  width: 100%;
   padding: 0.5rem;
   font-size: inherit;
+}
+
+.btn {
+  margin-inline: 0.5rem;
 }
 
 .btn--cta {
@@ -102,5 +120,11 @@ input {
 
 .btn--clear {
   outline: 2px solid var(--accent);
+}
+
+@media screen and (prefers-color-scheme: light) {
+  header {
+    background: #ececec;
+  }
 }
 </style>
