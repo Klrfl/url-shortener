@@ -37,10 +37,6 @@ nav {
   position: relative;
 }
 
-.nav-links a:visited {
-  color: var(--nav-color-dark);
-}
-
 .nav-links a.current-page::before {
   content: "";
   background: var(--accent);
