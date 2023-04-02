@@ -19,3 +19,18 @@
     </p>
   </main>
 </template>
+
+<style scoped>
+a:link {
+  color: dodgerblue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: dodgerblue;
+}
+</style>

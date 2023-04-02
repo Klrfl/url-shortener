@@ -3,6 +3,12 @@
   --accent: rgb(39, 83, 180);
 }
 
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -19,19 +25,6 @@ button {
 
 button:focus-within {
   outline: 3px solid dodgerblue;
-}
-
-a:link {
-  color: dodgerblue;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a:visited {
-  color: dodgerblue;
 }
 
 @media screen and (prefers-color-scheme: light) {
