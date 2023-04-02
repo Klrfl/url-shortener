@@ -13,6 +13,17 @@
 <style>
 footer {
   background: #22242d;
+  color: var(--nav-color-dark);
   padding: 2rem;
+  margin-top: auto;
+}
+
+a {
+  color: dodgerblue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 </style>
