@@ -104,21 +104,11 @@ header {
 }
 
 input {
+  border: none;
+  border-bottom: 2px solid var(--accent);
   width: 100%;
   padding: 0.5rem;
   font-size: inherit;
-}
-
-.btn {
-  margin-inline: 0.5rem;
-}
-
-.btn:hover {
-  filter: saturate(0.8);
-}
-
-.btn:active {
-  transform: translateY(0.2rem);
 }
 
 .btn--cta {
