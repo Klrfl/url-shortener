@@ -7,19 +7,20 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Results",
-  props: {
-    shortUrl: String,
-  },
+<script setup>
+import { onMounted } from "vue";
 
-  methods: {
-    copyUrl() {
-      navigator.clipboard.writeText(this.shortUrl);
-    },
-  },
-};
+const props = defineProps({
+  shortUrl: String,
+});
+
+function copyUrl() {
+  navigator.clipboard.writeText(props.shortUrl);
+}
+
+onMounted(() => {
+  copyUrl();
+});
 </script>
 
 <style>
