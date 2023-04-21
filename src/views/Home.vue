@@ -5,26 +5,14 @@
   </main>
 </template>
 
-<script>
+<script setup>
+import { ref } from "vue";
 import TheHeader from "../components/TheHeader.vue";
 import Results from "../components/Results.vue";
 
-export default {
-  components: {
-    TheHeader,
-    Results,
-  },
+const shortUrl = ref("");
 
-  data() {
-    return {
-      shortUrl: "",
-    };
-  },
-
-  methods: {
-    handleUrl(url) {
-      this.shortUrl = url;
-    },
-  },
-};
+function handleUrl(url) {
+  shortUrl.value = url;
+}
 </script>
