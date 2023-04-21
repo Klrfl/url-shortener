@@ -61,8 +61,6 @@ async function getShortUrl() {
   const data = await response.json();
   shortUrl.value = await data.result.full_short_link;
 
-  // copy URL to clipboard
-  navigator.clipboard.writeText(shortUrl.value);
   emit("gotShortUrl", shortUrl.value);
 }
 
