@@ -9,8 +9,13 @@
     </p>
     <h2>How did you access the API?</h2>
     <p>
-      I made a POST request to Bitly's official API. using <code>fetch</code>.
-      You can read more about the API on the
+      I made a fetch request to shrtcode's URL shortener API. You can read about
+      it in the
+      <a href="https://shrtco.de/docs" target="_blank"
+        >offical documentation page</a
+      >. Before this, I used Bitly's official API, where I had to make a POST
+      request. It was more complicated because it required authentication with a
+      bearer token. You can read more about the API on the
       <a href="https://dev.bitly.com/" target="_blank"
         >official documentation page</a
       >. Fun fact, my <code>fetch</code> request wasn't working, and I was stuck
