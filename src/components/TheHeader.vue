@@ -15,8 +15,7 @@
           type="url"
           placeholder="put your URL here"
           v-model="url"
-          ref="UrlInput"
-        />
+          ref="UrlInput" />
       </div>
       <div class="button-container">
         <button class="btn btn--cta" @click="getShortUrl">Get Short URL</button>
@@ -28,65 +27,48 @@
   </header>
 </template>
 
-<script>
-export default {
-  name: "TheHeader",
-  emits: ["gotShortUrl"],
-  data() {
-    return {
-      url: "",
-      shortUrl: "",
-    };
-  },
-  methods: {
-    checkValidUrl(url) {
-      try {
-        new URL(url);
-      } catch (error) {
-        console.log(error);
-        return false;
-      }
-      return true;
-    },
+<script setup>
+import { ref } from "vue";
 
-    async getShortUrl() {
-      const isValidUrl = this.checkValidUrl(this.url);
-      if (!isValidUrl) {
-        alert("not a valid url.");
-      }
+const emit = defineEmits(["gotShortUrl"]);
 
-      const options = {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer b8c5695e01c439ba5398e77a38793cdcbfc13627`,
-          "Content-Type": "application/json",
-        },
+const url = ref("");
+const shortUrl = ref("");
 
-        body: JSON.stringify({
-          group_guid: "",
-          domain: "bit.ly",
-          long_url: this.url,
-        }),
-      };
+function checkValidUrl(url) {
+  try {
+    new URL(url);
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 
-      const response = await fetch(
-        "https://api-ssl.bitly.com/v4/shorten",
-        options
-      )
-        .then((response) => response.json())
-        .then((data) => (this.shortUrl = data.link))
-        .catch((err) => console.log(err));
+  return true;
+}
 
-      // copy URL to clipboard
-      navigator.clipboard.writeText(this.shortUrl);
-      this.$emit("gotShortUrl", this.shortUrl);
-    },
+async function getShortUrl() {
+  const isValidUrl = checkValidUrl(url.value);
+  console.log(isValidUrl);
 
-    clearUrl() {
-      this.url = "";
-    },
-  },
-};
+  if (!isValidUrl) {
+    alert("not a valid url.");
+  }
+
+  // fetch short api
+  const response = await fetch(
+    `https://api.shrtco.de/v2/shorten?url=${url.value}`
+  );
+  const data = await response.json();
+  shortUrl.value = await data.result.full_short_link;
+
+  // copy URL to clipboard
+  navigator.clipboard.writeText(shortUrl.value);
+  emit("gotShortUrl", shortUrl.value);
+}
+
+function clearUrl() {
+  url.value = "";
+}
 </script>
 
 <style>
