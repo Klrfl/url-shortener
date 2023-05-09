@@ -48,7 +48,6 @@ function checkValidUrl(url) {
 
 async function getShortUrl() {
   const isValidUrl = checkValidUrl(url.value);
-  console.log(isValidUrl);
 
   if (!isValidUrl) {
     alert("not a valid url.");
