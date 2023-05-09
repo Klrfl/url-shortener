@@ -24,7 +24,7 @@ button {
   user-select: none;
 }
 
-button:focus-within {
+button:focus-visible {
   outline: 3px solid dodgerblue;
 }
 
