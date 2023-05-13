@@ -83,6 +83,8 @@ header {
 }
 
 input {
+  background: var(--form-bg);
+  color: inherit;
   border: none;
   border-bottom: 2px solid var(--accent);
   width: 100%;
@@ -97,15 +99,6 @@ input {
 
 .btn--clear {
   outline: 2px solid var(--accent);
-}
-
-@media screen and (prefers-color-scheme: light) {
-  header {
-    background: #ececec;
-  }
-
-  .btn--cta {
-    color: #eee;
-  }
+  color: inherit;
 }
 </style>

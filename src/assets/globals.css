@@ -59,3 +59,23 @@ button:focus-visible {
   --nav-outline: #cecece;
   --nav-hover: var(--darker-white);
 }
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="light"] {
+    background: var(--dark-white);
+    color: var(--dark-grey);
+
+    --form-bg: var(--darker-white);
+    --nav-outline: #cecece;
+    --nav-hover: var(--darker-white);
+  }
+
+  [data-theme="dark"] {
+    background: var(--dark-grey);
+    color: var(--darker-white);
+
+    --form-bg: var(--bluish-grey);
+    --nav-outline: var(--grey);
+    --nav-hover: var(--grey);
+  }
+}
