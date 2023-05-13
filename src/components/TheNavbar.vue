@@ -4,19 +4,31 @@
       <li><router-link :to="{ name: 'Home' }">Home</router-link></li>
       <li><router-link :to="{ name: 'About' }">About</router-link></li>
     </ul>
+
+    <button class="dark-mode-toggle" @click="setTheme">Light</button>
   </nav>
 </template>
 
-<style>
-:root {
-  --nav-color-dark: #eee;
-  --nav-color-light: #222;
-  --nav-outline-dark: #333;
-  --nav-outline-light: #cecece;
-}
+<script setup>
+import { inject } from "vue";
+let theme = inject("theme");
 
+function setTheme() {
+  if (theme === "dark") {
+    theme = "light";
+    localStorage.setItem("theme-preference", "light");
+  } else {
+    theme = "dark";
+    localStorage.setItem("theme-preference", "dark");
+  }
+
+  document.body.setAttribute("data-theme", theme);
+}
+</script>
+
+<style>
 nav {
-  outline: 2px solid var(--nav-outline-dark);
+  outline: 2px solid var(--nav-outline);
 }
 
 .nav-links {
@@ -28,10 +40,9 @@ nav {
 }
 
 .nav-links a {
-  color: var(--nav-color-dark);
+  color: var(--nav-color);
   text-decoration: none;
   display: block;
-  color: inherit;
   text-decoration: none;
   padding: 1rem;
   position: relative;
@@ -49,20 +60,7 @@ nav {
 }
 
 .nav-links a:hover {
-  background: #333;
+  background: var(--nav-hover);
   text-decoration: none;
-}
-@media screen and (prefers-color-scheme: light) {
-  nav {
-    outline: 2px solid var(--nav-outline-light);
-  }
-
-  .nav-links a:is(:link, :visited) {
-    color: var(--nav-color-light);
-  }
-
-  .nav-links a:hover {
-    background: #d2d2dd;
-  }
 }
 </style>
