@@ -9,14 +9,14 @@
     </div>
 
     <div class="input-form">
-      <div class="input-container">
+      <form class="input-container" @submit.prevent="getShortUrl">
         <input
           autofocus
           type="url"
           placeholder="put your URL here"
           v-model="url"
           ref="UrlInput" />
-      </div>
+      </form>
       <div class="button-container">
         <button class="btn btn--cta" @click="getShortUrl">Get Short URL</button>
         <button class="btn btn--clear" @click="clearUrl">
@@ -30,16 +30,15 @@
 <script setup>
 import { ref } from "vue";
 
-const emit = defineEmits(["gotShortUrl"]);
+const emit = defineEmits(["gotShortUrl", "closeResult"]);
 
 const url = ref("");
-const shortUrl = ref("");
 
 function checkValidUrl(url) {
   try {
     new URL(url);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return false;
   }
 
@@ -51,16 +50,16 @@ async function getShortUrl() {
 
   if (!isValidUrl) {
     alert("not a valid url.");
+    return;
   }
 
   // fetch short api
   const response = await fetch(
     `https://api.shrtco.de/v2/shorten?url=${url.value}`
   );
-  const data = await response.json();
-  shortUrl.value = await data.result.full_short_link;
 
-  emit("gotShortUrl", shortUrl.value);
+  const data = await response.json();
+  emit("gotShortUrl", data);
 }
 
 function clearUrl() {
