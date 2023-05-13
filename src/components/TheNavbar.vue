@@ -5,7 +5,7 @@
       <li><router-link :to="{ name: 'About' }">About</router-link></li>
     </ul>
 
-    <button class="dark-mode-toggle" @click="setTheme">Light</button>
+    <button class="btn theme-toggle" @click="setTheme">Light</button>
   </nav>
 </template>
 
@@ -29,6 +29,8 @@ function setTheme() {
 <style>
 nav {
   outline: 2px solid var(--nav-outline);
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav-links {
@@ -43,7 +45,6 @@ nav {
   color: var(--nav-color);
   text-decoration: none;
   display: block;
-  text-decoration: none;
   padding: 1rem;
   position: relative;
 }
@@ -53,8 +54,7 @@ nav {
   background: var(--accent);
 
   position: absolute;
-  bottom: 0;
-  left: 0;
+  inset: auto 0 0 0;
   height: 0.125rem;
   width: 100%;
 }
