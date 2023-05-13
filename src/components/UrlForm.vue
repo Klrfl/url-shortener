@@ -3,8 +3,8 @@
     <div class="info">
       <h1>URL Shortener</h1>
       <p>
-        insert the url you want to shorten and click shorten to get the
-        shortened url.
+        insert the URL you want to shorten and click the blue button to get a
+        new shortened URL.
       </p>
     </div>
 
@@ -68,7 +68,7 @@ function clearUrl() {
 }
 </script>
 
-<style>
+<style scoped>
 header {
   background: var(--form-bg);
   padding: 1rem;
@@ -84,6 +84,7 @@ header {
 
 input {
   background: var(--form-bg);
+  filter: brightness(0.9);
   color: inherit;
   border: none;
   border-bottom: 2px solid var(--accent);
@@ -92,9 +93,20 @@ input {
   font-size: inherit;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  flex-basis: fit-content;
+}
+
 .btn--cta {
   background-color: var(--accent);
-  cursor: pointer;
+  color: var(--darker-white);
 }
 
 .btn--clear {
