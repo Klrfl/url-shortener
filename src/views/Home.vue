@@ -1,7 +1,10 @@
 <template>
   <main>
-    <UrlForm @gotShortUrl="handleUrl" />
-    <Results :shortUrl="shortUrl" v-if="shortUrl.length !== 0" />
+    <UrlForm @got-short-url="handleUrl" @close-result="closeResult" />
+    <Results
+      :fetchedData="fetchedData"
+      v-if="showResults"
+      @close-result="closeResult" />
   </main>
 </template>
 
@@ -10,9 +13,17 @@ import { ref } from "vue";
 import UrlForm from "../components/UrlForm.vue";
 import Results from "../components/Results.vue";
 
-const shortUrl = ref("");
+const fetchedData = ref("");
+const showResults = ref(false);
 
-function handleUrl(url) {
-  shortUrl.value = url;
+function handleUrl(data) {
+  fetchedData.value = data;
+  if (data.length !== 0) {
+    showResults.value = true;
+  }
+}
+
+function closeResult() {
+  showResults.value = false;
 }
 </script>
