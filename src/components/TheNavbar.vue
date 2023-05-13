@@ -5,25 +5,33 @@
       <li><router-link :to="{ name: 'About' }">About</router-link></li>
     </ul>
 
-    <button class="btn theme-toggle" @click="setTheme">Light</button>
+    <button class="btn theme-toggle" @click="setTheme">{{ themeText }}</button>
   </nav>
 </template>
 
 <script setup>
-import { inject } from "vue";
+import { onMounted, inject, ref } from "vue";
 let theme = inject("theme");
+
+const themeText = ref("");
 
 function setTheme() {
   if (theme === "dark") {
     theme = "light";
     localStorage.setItem("theme-preference", "light");
+    themeText.value = theme;
   } else {
     theme = "dark";
+    themeText.value = theme;
     localStorage.setItem("theme-preference", "dark");
   }
 
   document.body.setAttribute("data-theme", theme);
 }
+
+onMounted(() => {
+  themeText.value = theme.value;
+});
 </script>
 
 <style>
