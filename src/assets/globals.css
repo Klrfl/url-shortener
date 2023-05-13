@@ -39,7 +39,16 @@ button:focus-visible {
 }
 
 .btn {
-  color: var(--darker-white);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(0.85);
+}
+
+.btn:active {
+  transform: translateY(0.2rem);
 }
 
 [data-theme="dark"] {
