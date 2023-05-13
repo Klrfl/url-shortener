@@ -9,7 +9,7 @@ const theme = inject("theme");
 
 onMounted(() => {
   localStorage.setItem("theme-preference", theme.value);
-  document.body.setAttribute("data-theme", theme);
+  document.body.setAttribute("data-theme", theme.value);
 });
 </script>
 
