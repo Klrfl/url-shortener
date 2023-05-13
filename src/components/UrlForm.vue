@@ -70,7 +70,7 @@ function clearUrl() {
 
 <style>
 header {
-  background: #22242d;
+  background: var(--form-bg);
   padding: 1rem;
   margin: auto;
   text-align: center;

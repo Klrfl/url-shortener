@@ -1,6 +1,14 @@
 :root {
   color-scheme: light dark;
+
   --accent: rgb(39, 83, 180);
+  --near-white: #efefef;
+  --dark-white: #e2e2e2;
+  --darker-white: #cecece;
+
+  --dark-grey: #15161c;
+  --bluish-grey: #22242d;
+  --grey: #333;
 }
 
 #app {
@@ -9,7 +17,9 @@
   flex-direction: column;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -28,8 +38,24 @@ button:focus-visible {
   outline: 3px solid dodgerblue;
 }
 
-@media screen and (prefers-color-scheme: light) {
-  body {
-    background: #e2e2e2;
-  }
+.btn {
+  color: var(--darker-white);
+}
+
+[data-theme="dark"] {
+  background: var(--dark-grey);
+  color: var(--darker-white);
+
+  --form-bg: var(--bluish-grey);
+  --nav-outline: var(--grey);
+  --nav-hover: var(--grey);
+}
+
+[data-theme="light"] {
+  background: var(--dark-white);
+  color: var(--dark-grey);
+
+  --form-bg: var(--darker-white);
+  --nav-outline: #cecece;
+  --nav-hover: var(--darker-white);
 }

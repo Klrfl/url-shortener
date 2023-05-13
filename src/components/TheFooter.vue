@@ -13,7 +13,7 @@
 <style>
 footer {
   background: #22242d;
-  color: var(--nav-color-dark);
+  color: var(--darker-white);
   padding: 2rem;
   margin-top: auto;
 }
