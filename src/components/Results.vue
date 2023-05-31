@@ -38,25 +38,25 @@ const dissalowedReason = ref("");
 const allOk = ref(false);
 
 function showResult() {
+  console.log(props.fetchedData);
+
   if (props.fetchedData.ok) {
     shortUrl.value = props.fetchedData.result.full_short_link;
-    allOk.value = true;
+    copyUrl();
   } else {
-    allOk.value = false;
     errorMessage.value = props.fetchedData.error;
     dissalowedReason.value = props.fetchedData.disallowed_reason;
   }
 
-  console.log(props.fetchedData);
+  allOk.value = props.fetchedData.ok;
 }
 
 function copyUrl() {
-  navigator.clipboard.writeText(shortUrl);
+  navigator.clipboard.writeText(shortUrl.value);
 }
 
 onBeforeUpdate(() => {
   showResult();
-  copyUrl();
 });
 </script>
 
