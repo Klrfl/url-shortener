@@ -30,7 +30,7 @@
 <script setup>
 import { ref } from "vue";
 
-const emit = defineEmits(["gotShortUrl", "closeResult"]);
+const emit = defineEmits(["gotShortUrl"]);
 
 const url = ref("");
 
@@ -58,8 +58,8 @@ async function getShortUrl() {
     `https://api.shrtco.de/v2/shorten?url=${url.value}`
   );
 
-  const data = await response.json();
-  emit("gotShortUrl", data);
+  const data = ref(await response.json());
+  emit("gotShortUrl", data.value);
 }
 
 function clearUrl() {
