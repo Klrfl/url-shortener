@@ -16,17 +16,19 @@ let theme = inject("theme");
 const themeText = ref("");
 
 function setTheme() {
-  if (theme === "dark") {
-    theme = "light";
+  console.log(theme.value);
+
+  if (theme.value === "dark") {
+    theme.value = "light";
     localStorage.setItem("theme-preference", "light");
-    themeText.value = theme;
   } else {
-    theme = "dark";
-    themeText.value = theme;
+    theme.value = "dark";
     localStorage.setItem("theme-preference", "dark");
   }
 
-  document.body.setAttribute("data-theme", theme);
+  themeText.value = theme.value;
+
+  document.body.setAttribute("data-theme", theme.value);
 }
 
 onMounted(() => {
