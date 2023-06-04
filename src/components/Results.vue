@@ -38,8 +38,6 @@ const dissalowedReason = ref("");
 const allOk = ref(false);
 
 function showResult() {
-  console.log(props.fetchedData);
-
   if (props.fetchedData.ok) {
     shortUrl.value = props.fetchedData.result.full_short_link;
     copyUrl();
