@@ -16,8 +16,6 @@ let theme = inject("theme");
 const themeText = ref("");
 
 function setTheme() {
-  console.log(theme.value);
-
   if (theme.value === "dark") {
     theme.value = "light";
     localStorage.setItem("theme-preference", "light");
