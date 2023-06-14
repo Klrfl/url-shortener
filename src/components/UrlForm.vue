@@ -14,9 +14,9 @@
           autofocus
           type="url"
           placeholder="put your URL here"
-          v-model="url"
-          ref="UrlInput" />
+          v-model="url" />
       </form>
+
       <div class="button-container">
         <button class="btn btn--cta" @click="getShortUrl">Get Short URL</button>
         <button class="btn btn--clear" @click="clearUrl">
@@ -34,9 +34,9 @@ const emit = defineEmits(["gotShortUrl"]);
 
 const url = ref("");
 
-function checkValidUrl(url) {
+function checkValidUrl(inputURL) {
   try {
-    new URL(url);
+    new URL(inputURL);
   } catch (error) {
     console.error(error);
     return false;
@@ -48,7 +48,7 @@ function checkValidUrl(url) {
 async function getShortUrl() {
   const isValidUrl = checkValidUrl(url.value);
 
-  if (!isValidUrl) {
+  if (isValidUrl === false) {
     alert("not a valid url.");
     return;
   }
