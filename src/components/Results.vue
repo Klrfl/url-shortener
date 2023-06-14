@@ -12,7 +12,7 @@
       <h2>Here is your shortened url!</h2>
       <p>The url is already copied to your clipboard.</p>
       <a class="short-url" :href="shortUrl" target="_blank">{{ shortUrl }}</a>
-      <button @click="copyUrl" class="btn btn--cta">Copy URL</button>
+      <button @click="copyURL" class="btn btn--cta">Copy URL</button>
     </div>
   </div>
 </template>
@@ -34,7 +34,7 @@ const allOk = ref(null);
 function showResult() {
   if (props.fetchedData.ok) {
     shortUrl.value = props.fetchedData.result.full_short_link;
-    copyUrl();
+    copyURL();
   } else if (props.fetchedData.ok == false) {
     errorMessage.value = props.fetchedData.error;
     dissalowedReason.value = props.fetchedData.disallowed_reason;
@@ -43,7 +43,7 @@ function showResult() {
   allOk.value = props.fetchedData.ok;
 }
 
-function copyUrl() {
+function copyURL() {
   navigator.clipboard.writeText(shortUrl.value);
 }
 
