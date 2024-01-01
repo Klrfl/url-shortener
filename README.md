@@ -6,6 +6,8 @@ This is a simple url shortener app made with Vue.
 
 I used shrtcode's URL shortener API; you can read about here on [the official docs](https://shrtco.de/docs). Before this I used Bitly's API, but their API has request limits. shrtcode's API was also simpler to fetch because it requires no authentication, so you just pass the URL there. with Bitly you have to pass in authentication and bearer tokens and whatnot, it's just more complicated.
 
+By the way, as of January 2024 the API has stopped working for some unknown reason. As a result I have taken the hosted site down. I will probably set it up again if the API works again.
+
 This project uses the MIT license.
 
 ## Development
